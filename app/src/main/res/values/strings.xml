@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MusicPlayer</string>
+    <string name="no_audio">No audio tracks found.</string>
+    <string name="unknown">Unknown</string>
+    <string name="cd_back">Go back</string>
+    <string name="cd_previous">Previous track</string>
+    <string name="cd_play_pause">Play or pause</string>
+    <string name="cd_next">Next track</string>
+    <string name="cd_mode">Change play mode</string>
+    <string name="_00_00">00:00</string>
+</resources>

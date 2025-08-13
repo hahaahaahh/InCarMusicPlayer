@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <!-- Horizontal Guideline for SeekBar at bottom (80% from top) -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <!-- Vertical Guideline for 5:4 split (5/9 ≈ 55.56%) -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <!-- Left Panel: Controls and Info (above SeekBar) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/left_panel"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guideline_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline_horizontal">
+
+        <!-- Left Background Image -->
+        <ImageView
+            android:id="@+id/left_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/left_background"
+            android:scaleType="centerCrop"
+            android:contentDescription="Left panel background"
+            android:layout_marginStart="120dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <!-- Content Container with padding -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="1056dp"
+            android:layout_height="876dp"
+            android:padding="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/left_background"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <!-- Top Row: Volume Controls (vertical) + Album Cover + Song Title/Artist -->
+            <LinearLayout
+                android:id="@+id/top_row"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- Volume Controls (vertical) -->
+                <LinearLayout
+                    android:id="@+id/volume_controls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="24dp"
+                    android:gravity="start|top"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/btnVolumeUp"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Increase volume"
+                        android:focusable="true"
+                        android:src="@drawable/volume_increase" />
+
+                    <ImageButton
+                        android:id="@+id/btnVolumeDown"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Decrease volume"
+                        android:focusable="true"
+                        android:src="@drawable/volume_decrease" />
+                </LinearLayout>
+
+                <!-- Album Cover -->
+                <ImageView
+                    android:id="@+id/iv_current_cover"
+                    android:layout_width="274dp"
+                    android:layout_height="208dp"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginEnd="48dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="32dp"
+                    android:layout_marginRight="48dp"
+                    android:layout_marginLeft="48dp"
+                    android:contentDescription="Current album cover"
+                    android:src="@drawable/left_cover" />
+
+                <!-- Song Title/Artist/Album (vertical layout, original) -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tv_current_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:text="Song Title"
+                        android:textColor="@color/black"
+                        android:textSize="38sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_current_artist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="start"
+                        android:text="Artist Name"
+                        android:textColor="@color/black"
+                        android:textSize="28sp" />
+
+                    <TextView
+                        android:id="@+id/tv_current_album"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:alpha="0.8"
+                        android:gravity="start"
+                        android:text="Album Name"
+                        android:textColor="@color/black"
+                        android:textSize="24sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Track Info -->
+
+            <!-- Controls -->
+
+            <!-- Time Display and SeekBar Container -->
+
+            <LinearLayout
+                android:id="@+id/controls_column"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/top_row">
+
+                <ImageButton
+                    android:id="@+id/btnPrev"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Previous track"
+                    android:focusable="true"
+                    android:src="@drawable/ic_skip_previous"
+                    app:tint="#FF000000" />
+
+                <ImageButton
+                    android:id="@+id/btnPlay"
+                    android:layout_width="114dp"
+                    android:layout_height="114dp"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginEnd="48dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Play or pause"
+                    android:focusable="true"
+                    android:src="@drawable/ic_play_circle"
+                    app:tint="#FF000000" />
+
+                <ImageButton
+                    android:id="@+id/btnNext"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Next track"
+                    android:focusable="true"
+                    android:src="@drawable/ic_skip_next"
+                    app:tint="#FF000000" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Right Panel: Playlist (above SeekBar) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPlaylist"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@id/guideline_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline_horizontal"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="24dp"
+        android:focusable="true"
+        android:contentDescription="Playlist" />
+
+    <!-- Bottom SeekBar Section -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_seekbar_section"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:id="@+id/tv_current_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="120dp" />
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:max="227"
+            android:maxHeight="20dp"
+            android:minHeight="20dp"
+            android:progressDrawable="@drawable/seekbar_track"
+            android:thumb="@drawable/thumb"
+            app:layout_constraintStart_toEndOf="@id/tv_current_time"
+            app:layout_constraintEnd_toStartOf="@id/tv_total_time"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_total_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="03:47"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="32dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

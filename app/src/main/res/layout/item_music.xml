@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="24dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <ImageView
+        android:id="@+id/iv_album_cover"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:src="@drawable/right_cover"
+        android:contentDescription="Album cover"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <!-- Horizontal song info row -->
+    <LinearLayout
+        android:id="@+id/track_info_row"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toEndOf="@id/iv_album_cover"
+        app:layout_constraintEnd_toStartOf="@id/tv_track_duration"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="24dp">
+
+        <TextView
+            android:id="@+id/tv_track_title"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:background="@drawable/text_box_bg"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:text="Track Title"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:ellipsize="end"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical" />
+
+        <Space
+            android:layout_width="8dp"
+            android:layout_height="36dp" />
+
+        <TextView
+            android:id="@+id/tv_track_artist"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:background="@drawable/text_box_bg"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:text="Artist Name"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:ellipsize="end"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical" />
+
+        <Space
+            android:layout_width="8dp"
+            android:layout_height="36dp" />
+
+        <TextView
+            android:id="@+id/tv_track_album"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:background="@drawable/text_box_bg"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:text="Album Name"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:ellipsize="end"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_track_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
